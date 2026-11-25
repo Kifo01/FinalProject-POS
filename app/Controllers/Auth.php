@@ -3,7 +3,16 @@ namespace App\Controllers;
 use App\Models\UserModel;
 class Auth extends BaseController {
     public function home() { return redirect()->to(session('user_id') ? (session('role') === 'admin' ? '/admin' : '/terminal') : '/login'); }
-    public function login() { if (session('user_id')) return $this->home(); return view('auth/login'); }
+    public function login() {
+        if (session('user_id')) return $this->home();
+        $demoLogin = null;
+        if (filter_var(env('POS_DEMO_LOGIN', false), FILTER_VALIDATE_BOOLEAN)) {
+            $username = trim((string) env('POS_DEMO_USERNAME', ''));
+            $password = (string) env('POS_DEMO_PASSWORD', '');
+            if ($username !== '' && $password !== '') $demoLogin = ['username' => $username, 'password' => $password];
+        }
+        return view('auth/login', ['demoLogin' => $demoLogin]);
+    }
     public function attempt() {
         $username = trim((string)$this->request->getPost('username'));
         $user = (new UserModel())->where('username',$username)->first();

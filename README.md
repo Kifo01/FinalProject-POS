@@ -28,6 +28,8 @@ For a fresh database without the SQL import, create `finalproject_pos`, configur
 
 These credentials are for local demonstration only. Replace them before hosting. The database stores password hashes, never plaintext passwords.
 
+The login page can show a copyable demo-credentials card when `POS_DEMO_LOGIN=true`, `POS_DEMO_USERNAME`, and `POS_DEMO_PASSWORD` are set in the private `.env` file. Keep it disabled for a hosted site with a private administrator account. If you deliberately enable a public academic demo, use a disposable account and fictional data.
+
 ## Features and roles
 
 Admins access the dashboard, product/customer/staff management, cashier terminal, and sales history. Cashiers access only the terminal. Product images and staff avatars are checked by actual MIME type, limited to 2 MB, resized into 800×600 WebP files, and stored under `public/uploads`. Product, customer, and staff records are archived or deactivated to preserve sales history.
