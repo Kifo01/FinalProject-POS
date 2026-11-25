@@ -19,7 +19,6 @@
         <div class="login-card">
             <span class="eyebrow">WELCOME BACK</span>
             <h1>Sign in to TAMS Cafe &amp; Co.</h1>
-            <p>Enter your staff credentials to continue.</p>
             <?php if (session('error')): ?><div class="alert error"><?= esc(session('error')) ?></div><?php endif ?>
             <form action="<?= site_url('login') ?>" method="post">
                 <?= csrf_field() ?>
@@ -43,7 +42,6 @@
                         <span class="demo-copy-action" aria-hidden="true">Copy</span>
                     </button>
                 </div>
-                <p class="demo-note">For project evaluation. Use fictional data only.</p>
                 <p class="demo-copy-status" role="status" aria-live="polite"></p>
             </section>
             <script>
