@@ -1,4 +1,4 @@
-# FinalProject POS
+# TAMS Cafe & Co. POS
 
 A standalone CodeIgniter 4 food and beverage point of sale application for IT0049. It preserves the professor's four-table schema and single-product sales workflow. Admins manage products, customers, and staff. Admins and cashiers record sales. Sales decrease stock atomically and appear in history.
 

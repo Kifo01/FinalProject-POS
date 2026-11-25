@@ -1,6 +1,6 @@
 {
-    "name": "codeigniter4/appstarter",
-    "description": "CodeIgniter4 starter app",
+    "name": "tams-cafe-co/pos",
+    "description": "TAMS Cafe & Co. point-of-sale application",
     "license": "MIT",
     "type": "project",
     "homepage": "https://codeigniter.com",

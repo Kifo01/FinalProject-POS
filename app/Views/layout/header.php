@@ -1,5 +1,5 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title><?= esc($title ?? 'FinalProject POS') ?></title><link rel="stylesheet" href="<?= base_url('assets/app.css') ?>"></head><body>
-<div class="app"><aside class="sidebar"><a class="brand" href="<?= site_url(session('role')==='admin'?'admin':'terminal') ?>"><span class="brand-mark">F</span><span>Folio<span class="brand-sub">POS SYSTEM</span></span></a><div class="nav-label">WORKSPACE</div><nav>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title><?= esc($title ?? 'Point of Sale') ?> · TAMS Cafe &amp; Co.</title><link rel="stylesheet" href="<?= base_url('assets/app.css') ?>"></head><body>
+<div class="app"><aside class="sidebar"><a class="brand" href="<?= site_url(session('role')==='admin'?'admin':'terminal') ?>"><span class="brand-mark">T</span><span class="brand-name">TAMS Cafe &amp; Co.<span class="brand-sub">POS SYSTEM</span></span></a><div class="nav-label">WORKSPACE</div><nav>
 <?php if (session('role')==='admin'): ?>
 <a href="<?= site_url('admin') ?>">▦ <span>Dashboard</span></a><a href="<?= site_url('admin/products') ?>">▣ <span>Products</span></a><a href="<?= site_url('admin/customers') ?>">♧ <span>Customers</span></a><a href="<?= site_url('admin/staff') ?>">♟ <span>Staff</span></a>
 <?php endif ?>
