@@ -1,0 +1,10 @@
+<?php $title=ucfirst($kind); include APPPATH.'Views/layout/header.php'; ?>
+<div class="page-intro"><div><span class="eyebrow">MANAGEMENT</span><h2><?= esc(ucfirst($kind)) ?></h2><p>Manage your <?= esc($kind) ?> and keep records up to date.</p></div><a class="btn primary" href="<?= site_url('admin/'.$kind.'/new') ?>">+ Add <?= esc($kind==='staff'?'staff member':substr($kind,0,-1)) ?></a></div>
+<div class="panel table-wrap"><table><thead><tr><?php if($kind==='products'): ?><th>Product</th><th>Price</th><th>Stock</th><?php elseif($kind==='customers'): ?><th>Customer</th><th>Email</th><th>Phone</th><?php else: ?><th>Staff member</th><th>Username</th><th>Role</th><?php endif ?><th>Status</th><th>Actions</th></tr></thead><tbody>
+<?php foreach($rows as $row): ?><tr>
+<?php if($kind==='products'): ?><td><div class="table-name"><img src="<?= esc(base_url($row['image'] ?: 'assets/food-placeholder.svg')) ?>" alt=""><strong><?= esc($row['name']) ?></strong></div></td><td>₱<?= number_format((float)$row['price'],2) ?></td><td><?= esc($row['stock_quantity']) ?></td>
+<?php elseif($kind==='customers'): ?><td><strong><?= esc($row['full_name']) ?></strong></td><td><?= esc($row['email']) ?></td><td><?= esc($row['phone'] ?: '—') ?></td>
+<?php else: ?><td><div class="table-name"><img src="<?= esc(base_url($row['avatar'] ?: 'assets/avatar-placeholder.svg')) ?>" alt=""><strong><?= esc($row['full_name']) ?></strong></div></td><td><?= esc($row['username']) ?></td><td><?= esc(ucfirst($row['role'])) ?></td><?php endif ?>
+<td><span class="pill <?= $row['active']?'on':'off' ?>"><?= $row['active']?'Active':'Archived' ?></span></td><td class="actions"><a href="<?= site_url('admin/'.$kind.'/'.$row['id'].'/edit') ?>">Edit</a><?php if($row['active']): ?><form action="<?= site_url('admin/'.$kind.'/'.$row['id'].'/archive') ?>" method="post" onsubmit="return confirm('Archive this record?')"><?= csrf_field() ?><button>Archive</button></form><?php endif ?></td></tr><?php endforeach ?>
+<?php if(!$rows): ?><tr><td colspan="5" class="empty">No records yet.</td></tr><?php endif ?></tbody></table></div>
+<?php include APPPATH.'Views/layout/footer.php'; ?>
